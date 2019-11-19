@@ -1,21 +1,24 @@
-//imports
+// imports
 const express           = require('express')
 const UserController    = require('./controllers/UserController')
 const AddressController = require('./controllers/AddressController')
 const TechController    = require('./controllers/TechController')
+const ReportController  = require('./controllers/ReportController')
 
 const routes = express.Router()
 
-//users routes
+// users routes
 routes.get('/users', UserController.index)
 routes.post('/users', UserController.store)
-//address routes
+// address routes
 routes.get('/users/:user_id/addresses', AddressController.index)
 routes.post('/users/:user_id/addresses', AddressController.store)
-//tech routes
+// tech routes
 routes.get('/users/:user_id/techs', TechController.index)
 routes.post('/users/:user_id/techs', TechController.store)
 routes.delete('/users/:user_id/techs', TechController.delete)
+// report routes
+routes.get('/report', ReportController.show)
 
-//export
+// export
 module.exports = routes
